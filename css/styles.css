@@ -183,7 +183,7 @@ nav a {
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  max-height: 600px;
+  max-height: auto;
   max-width: 1600px;
   text-align: center;
 }
@@ -195,9 +195,9 @@ nav a {
     url(../images/main.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   max-width: 1600px;
-  max-height: 600px;
+  max-height: auto;
 }
 
 .main-button.heigh-button {
