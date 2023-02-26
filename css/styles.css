@@ -149,10 +149,12 @@ nav a {
 }
 /* obrazy svg */
 .svg-contact-mail {
+  display: inline-block;
   width: 16px;
   height: 12px;
 }
 .svg-contact-phone {
+  display: inline-block;
   width: 10px;
   height: 16px;
 }
@@ -181,8 +183,8 @@ nav a {
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  height: 600px;
-  width: auto;
+  max-height: 600px;
+  max-width: 1600px;
   text-align: center;
 }
 .main-section-background {
@@ -195,6 +197,7 @@ nav a {
   background-position: center;
   background-size: contain;
   max-width: 1600px;
+  max-height: 600px;
 }
 
 .main-button.heigh-button {
