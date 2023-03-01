@@ -15,6 +15,7 @@
   --teamsectionbackgroundn-color: #f5f4fa;
   --svg-icons-color: #afb1bb;
   --background-footer-sl: rgba(255, 255, 255, 0.1);
+  --lower-caption-color: rgba(117, 117, 117, 1);
 }
 h1,
 h2,
@@ -88,6 +89,7 @@ section {
 /* end - header */
 /* navigation menu */
 .navigation-links {
+  position: relative;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
@@ -96,6 +98,7 @@ section {
   margin-left: 93px;
   display: flex;
   align-items: center;
+  position: relati;
 }
 
 .navigation-links a {
@@ -116,20 +119,18 @@ section {
 .navigation-links a:active {
   color: var(--selection-color);
 }
-.navigation-links a.is-active {
-  position: relative;
+
+.agency-link::after.is-active {
   display: inline-block;
-  top: 44px;
+  bottom: 0px;
   left: 0px;
   content: "";
   width: 53px;
   height: 4px;
   border-radius: 2px;
-  background-color: var(--selection-color);
   color: var(--selection-color);
-  transform: translatex(100%);
+  background-color: var(--selection-color);
 }
-
 .navigation-links a:hover::after,
 .navigation-links a:focus::after,
 .navigation-links a:active::after {
@@ -153,7 +154,6 @@ nav a {
   text-decoration: none;
 }
 
-/* end navigation */
 .contact {
   display: flex;
   gap: 50px;
@@ -182,6 +182,7 @@ nav a {
   color: var(--selection-color);
   fill: var(--selection-color);
 }
+
 /* obrazy svg */
 .svg-contact-mail {
   display: inline-block;
@@ -458,7 +459,7 @@ nav a {
   width: 44px;
   height: 44px;
   background-color: var(--main-white);
-  fill: var(--text-color);
+  fill: rgba(175, 177, 184, 1);
   border-radius: 50%;
   transition-property: background-color, fill, box-shadow, border-radius;
   transition-duration: 250ms;
@@ -534,6 +535,7 @@ nav a {
 .team-caption > .upper-caption {
   justify-content: center;
   font-weight: 500;
+  font-size: 16px;
   margin-bottom: 10px;
   line-height: 1.19;
   margin-left: 0px;
@@ -548,16 +550,9 @@ nav a {
   text-align: center;
 }
 
-.team-caption .upper-caption {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: 0.03;
-}
-
 .team-caption + .lower-caption {
   font-size: 14px;
-  color: var(--text-color);
+  color: var(--lower-caption-color);
   line-height: 1.46;
   letter-spacing: 0.03;
 }
@@ -708,7 +703,7 @@ footer {
 
 /* portfolio */
 /* buttons */
-button[type="button"] {
+.projects-button[type="button"] {
   cursor: pointer;
   font-weight: 500;
   line-height: 1.63;
@@ -724,9 +719,9 @@ button[type="button"] {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button[type="button"]:hover,
-button[type="button"]:focus,
-button[type="button"]:active {
+.projects-button[type="button"]:hover,
+.projects-button[type="button"]:focus,
+.projects-button[type="button"]:active {
   color: var(--main-white);
   background-color: var(--selection-color);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -840,7 +835,7 @@ button[type="button"]:active {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.overlay >p{
+.overlay > p {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.57;
@@ -858,12 +853,6 @@ button[type="button"]:active {
 /* end - portfolio */
 /* okno modmalne */
 
-.backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
 .backdrop {
   left: 0;
   top: 0;
@@ -873,17 +862,43 @@ button[type="button"]:active {
   position: fixed;
   min-width: 100%;
   min-height: 100%;
+  visibility: visible;
+  opacity: 1;
   background-color: rgba(0, 0, 0, 0.2);
+  transition-property: opacity, visibility, transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 250ms;
+  transform: scale(1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(.1);
 }
 .modal {
   position: absolute;
   min-height: 581px;
   width: 528px;
   border-radius: 4px;
+  opacity: 1;
+  visibility: visible;
   background-color: var(--main-white);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  transition-property: opacity, visibility, transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 250ms;
+  transform: scale(1);
+}
+.modal.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(.1);
 }
 .close-btn {
   position: absolute;
